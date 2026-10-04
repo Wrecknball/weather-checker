@@ -1,6 +1,9 @@
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class WeatherSummary {
     /**
-     * Reads newline-delimted temperatures from System.in and prints summary
+     * Reads newline-delimited temperatures from System.in and prints summary
      * statistics to System.out.
      * 
      * Example input:
@@ -18,5 +21,15 @@ public class WeatherSummary {
     public static void main(String[] args) {
         // Implement this method!
         // Hint: use Scanner. nextDouble() and hasNextDouble() will be helpful here!
+        System.out.println("test");
+        java.io.File checkFile = new java.io.File("temps");
+        System.out.println("real?" + checkFile.exists() + "length" + checkFile.length());
+        try (Scanner scanner = new Scanner(new java.io.File("temps"))) {
+            while(scanner.hasNext()) {
+                System.out.println(scanner.next());
+            }
+        } catch (FileNotFoundException error) {
+            System.out.println("File not found.");
+        }
     }
 }
