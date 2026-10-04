@@ -25,8 +25,8 @@ public class WeatherSummary {
         java.io.File checkFile = new java.io.File("temps");
         System.out.println("real?" + checkFile.exists() + "length" + checkFile.length());
         try (Scanner scanner = new Scanner(new java.io.File("temps"))) {
-            while(scanner.hasNext()) {
-                System.out.println(scanner.next());
+            while(scanner.hasNextDouble()) {
+                System.out.println(scanner.nextDouble());
             }
         } catch (FileNotFoundException error) {
             System.out.println("File not found.");
